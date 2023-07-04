@@ -4,13 +4,36 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.action_chains import ActionChains
+import time
 
 # class CheckXpathElement(BasePageElement):
 #     locator = "/html/body/div[2]/div[1]/div[1]/div/div/div/div[1]"
 
 # class checkDashboard(CheckXpath):
 #     value=""
+def is_element_found(driver, xpath):
+    try:
+        return WebDriverWait(driver, 120).until(EC.visibility_of_element_located((By.XPATH, xpath)))
+    except NoSuchElementException:
+        # If the element was not found, print an error message
+        print(f"Error: Element with XPath '{xpath}' not found on page")
+    finally:
+        # If the element was found, print a success message
+        print(f"Success: Element with XPath '{xpath}' found on page")
 
+def navigate_and_access(driver, xpath):
+    actions = ActionChains(driver)
+    actions.move_by_offset(268, 316).perform()
+    print("Move to inner scrollbar")
+    time.sleep(10)
+    try:
+        elementExampleButton = driver.find_element(By.XPATH, xpath)
+        driver.execute_script("arguments[0].scrollIntoView();", elementExampleButton)
+        elementExampleButton.click()
+    except NoSuchElementException:
+        print(f"Error: Element with XPath '{xpath}' not found on page")
+        
 class BasePage(object):
     def __init__(self, driver):
         self.driver = driver
@@ -47,5 +70,18 @@ class DashboardPage(BasePage):
         finally:
             # If the element was found, print a success message
             print("Success: Element found on page")
-
-    
+class ExamplePage(BasePage):
+    def navigate_and_access_example(self):
+        xpath = "/html/body/div[2]/div/div[1]/div/div/div/section/div[55]/a"
+        navigate_and_access(self.driver, xpath)
+        
+    def is_example_sidebar_found(self):
+        example_button = "/html/body/div[2]/div/div[1]/div/div/div/section/div[55]/a"
+        is_element_found(self.driver, example_button)
+        
+    def is_pill_active(self):
+        active_example_button = "/html/body/div[9]/div/div[1]/div/div/div/section/div[55]/a"
+        is_element_found(self.driver, active_example_button)
+    def is_add_btn_found(self):
+        active_example_button = "/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/button"
+        is_element_found(self.driver, active_example_button)
