@@ -24,20 +24,23 @@ class PythonOrgSearch(unittest.TestCase):
         loginPage.input_username()
         loginPage.input_password()
         loginPage.click_login_button()
-    
+        
     def test_check_headerSidebar(self):
-        pages = testcase.supervisionalbe.SupervisionalPage(self.driver)
-        pages.headerSidebar()
+        pages = page.ExamplePage(self.driver)
+        pages.navigate_and_access_example()
+        pages.is_example_sidebar_found()
+        pages.is_pill_active()
+        pages.is_add_btn_found()
+        pages.is_index_breadcrumb_found()
+    # def test_navigate_superbe(self):
+    #     pages = testcase.supervisionalbe.SupervisionalPage(self.driver)
+    #     pages.navigate_and_access_SuperBE()
     
-    def test_navigate_superbe(self):
-        pages = testcase.supervisionalbe.SupervisionalPage(self.driver)
-        pages.navigate_and_access_SuperBE()
-    
-    def test_add_supervisionalBE_byExcel(self):
-        pages = testcase.supervisionalbe.SupervisionalPage(self.driver)
-        pages.excelSVBE()
-        pages.navigate_and_submit_form()
-        time.sleep(2)
+    # def test_add_supervisionalBE_byExcel(self):
+    #     pages = testcase.supervisionalbe.SupervisionalPage(self.driver)
+    #     pages.excelSVBE()
+    #     pages.navigate_and_submit_form()
+    #     time.sleep(2)
         
     def tearDown(self):
         self.driver.close()

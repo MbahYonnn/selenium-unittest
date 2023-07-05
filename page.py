@@ -12,15 +12,15 @@ import time
 
 # class checkDashboard(CheckXpath):
 #     value=""
-def is_element_found(driver, xpath):
+def is_element_found(driver, xpath, variable):
     try:
         return WebDriverWait(driver, 120).until(EC.visibility_of_element_located((By.XPATH, xpath)))
     except NoSuchElementException:
         # If the element was not found, print an error message
-        print(f"Error: Element with XPath '{xpath}' not found on page")
+        print(f"Error: Element {variable} : '{xpath}' not found on page")
     finally:
         # If the element was found, print a success message
-        print(f"Success: Element with XPath '{xpath}' found on page")
+        print(f"Success: Element {variable} :  '{xpath}' found on page")
 
 def navigate_and_access(driver, xpath):
     actions = ActionChains(driver)
@@ -32,8 +32,8 @@ def navigate_and_access(driver, xpath):
         driver.execute_script("arguments[0].scrollIntoView();", elementExampleButton)
         elementExampleButton.click()
     except NoSuchElementException:
-        print(f"Error: Element with XPath '{xpath}' not found on page")
-        
+        print(f"Error: Element with XPath '{xpath}' not found on page")   
+          
 class BasePage(object):
     def __init__(self, driver):
         self.driver = driver
@@ -77,11 +77,22 @@ class ExamplePage(BasePage):
         
     def is_example_sidebar_found(self):
         example_button = "/html/body/div[2]/div/div[1]/div/div/div/section/div[55]/a"
-        is_element_found(self.driver, example_button)
+        is_element_found(self.driver, example_button,'example_button')
         
     def is_pill_active(self):
         active_example_button = "/html/body/div[9]/div/div[1]/div/div/div/section/div[55]/a"
-        is_element_found(self.driver, active_example_button)
+        is_element_found(self.driver, active_example_button, 'active_example_button')
     def is_add_btn_found(self):
         active_example_button = "/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/button"
-        is_element_found(self.driver, active_example_button)
+        is_element_found(self.driver, active_example_button, 'active_example_button')
+    def is_index_breadcrumb_found(self):
+        home_breadcrumb = ("/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[1]/div[2]/ul/li[1]/div/span/svg")
+        chevron_1 = ("/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[1]/div[2]/ul/li[1]/span/span/svg")
+        breadcrumb_1 = ("/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[1]/div[2]/ul/div[1]/li/span[1]/span")
+        chevron_2 = ("/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[1]/div[2]/ul/div[1]/li/span[2]/span/svg")
+        breadcrumb_2 = ("/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[1]/div[2]/ul/li[2]/span")
+        is_element_found(self.driver,home_breadcrumb,'home_breadcrumb')
+        is_element_found(self.driver,chevron_1,'chevron_1')
+        is_element_found(self.driver,breadcrumb_1,'breadcrumb_1')
+        is_element_found(self.driver,chevron_2,'chevron_2')
+        is_element_found(self.driver,breadcrumb_2,'breadcrumb_2')
