@@ -31,10 +31,10 @@ class PythonOrgSearch(unittest.TestCase):
         pages.navigate_and_access_example()
         pages.is_example_sidebar_found()
         pages.is_pill_active()
-        pages.is_add_btn_found()
-        # pages.check_filter_button()
-        # pages.checkss()
         pages.is_index_breadcrumb_found()
+        pages.is_add_btn_found()
+        pages.check_filter_button()
+        pages.check_colorNew()
         # pages.check_color_button()
     
     # def test_navigate_superbe(self):
