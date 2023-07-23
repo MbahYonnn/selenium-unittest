@@ -163,3 +163,4 @@ cython_debug/
 .DS_Store
 .vscode/
 /cobaPY.py
+data_supervisional_be.xlsx
