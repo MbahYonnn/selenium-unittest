@@ -46,7 +46,8 @@ class SupervisionalPage(BasePage):
             print("Success: Berhasil Menemukan System Provider")
 
     def findSupervisionalBE(self):
-        supervisionalBE = "/html/body/div[2]/div/div[1]/div/div/div/section/div[45]/a"
+        # supervisionalBE = "/html/body/div[2]/div/div[1]/div/div/div/section/div[45]/a"
+        supervisionalBE = "/html/body/div[2]/div/div[1]/div/div/div/section/div[46]/a"
         element_SupervisionalBE = self.driver.find_element(
             By.XPATH, supervisionalBE)
         self.driver.execute_script(
@@ -59,7 +60,8 @@ class SupervisionalPage(BasePage):
             print("Success: Found Supervisional BE")
 
     def clickSupervisionalBE(self):
-        supervisionalBE = "/html/body/div[2]/div/div[1]/div/div/div/section/div[45]/a"
+        # supervisionalBE = "/html/body/div[2]/div/div[1]/div/div/div/section/div[45]/a"
+        supervisionalBE = "/html/body/div[2]/div/div[1]/div/div/div/section/div[46]/a"
         element_SupervisionalBE = self.driver.find_element(
             By.XPATH, supervisionalBE)
         self.driver.execute_script(
@@ -145,7 +147,7 @@ class SupervisionalPage(BasePage):
             credentials_password = "/html/body/div[2]/div[1]/div[4]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/div/div[2]/div[3]/div[2]/div/div/input"
             credentials_confirmpassword = "/html/body/div[2]/div[1]/div[4]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/div/div[2]/div[4]/div[2]/div/div/input"
             startDate = "/html/body/div[2]/div[1]/div[4]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div[2]/div[2]/input"
-            inputDateForStartDate = "//div[@class='flatpickr-calendar animate open arrowBottom arrowLeft']//span[@aria-label='June 13, 2023'][normalize-space()='13']"
+            inputDateForStartDate = "//div[@class='flatpickr-calendar animate open arrowBottom arrowLeft']//span[@aria-label='July 18, 2023'][normalize-space()='18']"
             buttonSaveAddSupervisionalBE = "/html/body/div[2]/div[1]/div[4]/div[2]/div[2]/div/div[2]/div[2]/div[3]/div[1]/div/div/div[2]/button"
 
             for LegalName, BrandName, Phone, Email, WebAddress, Address, TaxCode, Username, Password in self.excelSVBE():

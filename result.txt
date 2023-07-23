@@ -48,3 +48,10 @@ RQZ+hTOiLMTsa2NSJLkZ4chdFVDDMXFljOsHzKFfupyYFuutoricZ2Tz4aAvEiC0KOEgLpLo7A9HjeW/
 : 
 "oUgqcCWn7iR3FiuwtzCx4ePpMGzWTfSQ/k8f0g2BdgMMrtRqtX29MQepEEFzaerJd9cxizAbnWTJlnIPmq+wWGacaMDoVdgCdJms/0FDKuhoQiM1P4BdpXpieCPBHu7UixOsGdg4POL2s4iBpyhZylh5y2geXogyLkwlb6iOpD3wroskJH+O1YE2OwlpGH7qxpOOUuAf2ESM2YVoAVUoYacr7CseowTpYO1NJ4RehxUO4VjgZzdfbH92rh+uUCdbvJSNXSAgmqMPaZDm/7XSSJaKGWWu0Yc5wkwhxPgawLaK4cKyEXWIOoQgZ0he1GIHaSK7WNvyC1qfg62ToUDADg=="
 
+
+
+Timestamp: 2023-07-17 15:40:10
+Error Code: Failed Alert
+Page URL: https://backoffice-acasia-dev.ainosi.com/business-entity/supervisional-be/new
+Title: Failed
+Body: Phone Number already exists

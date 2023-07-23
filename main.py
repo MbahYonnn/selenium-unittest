@@ -6,6 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import page
 import time
 import testcase.supervisionalbe
+import unittest
 
 class PythonOrgSearch(unittest.TestCase):
     def setUp(self):
@@ -25,29 +26,34 @@ class PythonOrgSearch(unittest.TestCase):
         loginPage.input_password()
         loginPage.click_login_button()
         
-    def test_check_headerSidebar(self):
+    def test_page_example(self):
         pages = page.ExamplePage(self.driver)
         pages.navigate_and_access_example()
         pages.is_example_sidebar_found()
         pages.is_pill_active()
         pages.is_add_btn_found()
+        # pages.check_filter_button()
+        # pages.checkss()
         pages.is_index_breadcrumb_found()
+        # pages.check_color_button()
+    
     # def test_navigate_superbe(self):
-    #     pages = testcase.supervisionalbe.SupervisionalPage(self.driver)
-    #     pages.navigate_and_access_SuperBE()
+        # pages = testcase.supervisionalbe.SupervisionalPage(self.driver)
+        # pages.navigate_and_access_SuperBE()
     
     # def test_add_supervisionalBE_byExcel(self):
-    #     pages = testcase.supervisionalbe.SupervisionalPage(self.driver)
-    #     pages.excelSVBE()
-    #     pages.navigate_and_submit_form()
-    #     time.sleep(2)
+        # pages = testcase.supervisionalbe.SupervisionalPage(self.driver)
+        # pages.findSupervisionalBE()
+        # pages.clickSupervisionalBE()
+        # pages.excelSVBE()
+        # pages.navigate_and_submit_form()
+        # time.sleep(2)
         
     def tearDown(self):
         self.driver.close()
 
 if __name__ == "__main__":
     unittest.main()
-    # HTMLTestRunner.main()
 
 
 
