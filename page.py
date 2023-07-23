@@ -76,6 +76,7 @@ class LandingPage(BasePage):
     def click_login_button(self):
         element = self.driver.find_element(*LoginPageLocators.LOGIN_BUTTON)
         element.click()
+        print("Login")
     
 class DashboardPage(BasePage):
     
@@ -97,25 +98,25 @@ class ExamplePage(BasePage):
     def is_example_sidebar_found(self):
         example_button = "/html/body/div[2]/div/div[1]/div/div/div/section/div[56]/a"
         is_element_found(self.driver, example_button, 'example_button')
-        
     def is_pill_active(self):
         active_example_button = "/html/body/div[9]/div/div[1]/div/div/div/section/div[56]/a"
         is_element_found(self.driver, active_example_button, 'active_example_button')
-    def is_add_btn_found(self):
-        btn_add = "/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/button"
-        is_element_found(self.driver, btn_add, 'btn_add')
-    def is_index_breadcrumb_found(self):
+    def is_index_elements_found(self):
         home_breadcrumb = ("/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[1]/div[2]/ul/li[1]/div/span")
         chevron_1 = ("/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[1]/div[2]/ul/div[1]")
         breadcrumb_1 = ("/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[1]/div[2]/ul/div[1]/li/span[1]/span")
         chevron_2 = ("/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[1]/div[2]/ul/div[1]/li/span[2]")
         breadcrumb_2 = ("/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[1]/div[2]/ul/li[2]")
+        btn_add = "/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/button"
+        btn_filter = "/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/div[7]/div[2]/button[2]"
         elements_to_check = [
             (home_breadcrumb, "Home Breadcrumb"),
             (chevron_1, "Chevron 1"),
             (breadcrumb_1, "Breadcrumb 1"),
             (chevron_2, "Chevron 2"),
-            (breadcrumb_2, "Breadcrumb 2")
+            (breadcrumb_2, "Breadcrumb 2"),
+            (btn_add, "btn_add"),
+            (btn_filter, "btn_filter")
             # Add more XPaths and variable names as needed
         ]
         for xpath, variable in elements_to_check:
@@ -126,9 +127,6 @@ class ExamplePage(BasePage):
                 # Perform assertions or other actions based on the element's presence
                 # For example:
                 assert element.is_displayed(), f"Error: Element {variable} : '{xpath}' not displayed on page"        
-    def check_filter_button(self):
-        btn_filter = "/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/div[7]/div[2]/button[2]"
-        is_element_found(self.driver,btn_filter,'btn_filter')
     def check_colorNew(self):
         btn_filter_xpath = "/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/div[7]/div[2]/button[2]"
         btn_add = "/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/button"
