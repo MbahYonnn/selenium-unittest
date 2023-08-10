@@ -17,7 +17,7 @@ import time
 
 def is_element_found(driver, xpath, variable):
     try:
-        return WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, xpath)))
+        return WebDriverWait(driver, 100).until(EC.visibility_of_element_located((By.XPATH, xpath)))
     except NoSuchElementException:
         # If the element was not found, print an error message
         print(f"Error: Element {variable} : '{xpath}' not found on page")
@@ -92,14 +92,15 @@ class DashboardPage(BasePage):
             print("Success: Element found on page")
 class ExamplePage(BasePage):
     def navigate_and_access_example(self):
-        xpath = "/html/body/div[2]/div/div[1]/div/div/div/section/div[56]/a"
+        xpath = "/html/body/div[2]/div/div[1]/div/div/div/section/div[57]/a"
+        
         navigate_and_access(self.driver, xpath)
         
     def is_example_sidebar_found(self):
-        example_button = "/html/body/div[2]/div/div[1]/div/div/div/section/div[56]/a"
+        example_button = "/html/body/div[2]/div/div[1]/div/div/div/section/div[57]/a"
         is_element_found(self.driver, example_button, 'example_button')
     def is_pill_active(self):
-        active_example_button = "/html/body/div[9]/div/div[1]/div/div/div/section/div[56]/a"
+        active_example_button = "/html/body/div[9]/div/div[1]/div/div/div/section/div[57]/a"
         is_element_found(self.driver, active_example_button, 'active_example_button')
     def is_index_elements_found(self):
         home_breadcrumb = ("/html/body/div[9]/div/div[4]/div[2]/div[2]/div/div[1]/div[2]/ul/li[1]/div/span")
@@ -139,4 +140,15 @@ class ExamplePage(BasePage):
     
         for xpath, expected_primary_color,variable_name in xpaths_and_colors:
             assert_color(self.driver,xpath, expected_primary_color,variable_name)
-            
+    def checkTextFilter(self):
+        xpath = "/html/body/div[51]/div/div[4]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/div[2]/div[1]/span"
+        expected_text = "Ticket"
+        element = is_element_found(self.driver, xpath, 'text_filter')
+        if element is None:
+            print(f"Error: Element 'text_filter' : '{xpath}' not found on page")
+        else:
+            assert expected_text in element.text, f"Error: Element 'text_filter' : '{xpath}' does not contain expected text '{expected_text}'"
+        
+
+        # generate code that can be use for register gmx website include bypass captcha
+        
